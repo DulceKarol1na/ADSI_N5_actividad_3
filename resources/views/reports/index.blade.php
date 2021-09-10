@@ -11,7 +11,18 @@
 <body>
 
 <div class= "container">
-    <div class= "row">
+  <!--  <div class= "row">
+        <div class= "col-md-12 offset-md-3">
+          <nav class="navbar navbar-light float-right">
+            <form class="form-inline" >
+                Fecha: <input name="searchdate" class="buscador" type="date" >
+                Aprendiz: <input name="searchtype" class="buscador" type="checkbox">
+                Instructor:  <input name="searchtype" class="buscador" type="checkbox">
+               
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
+           </nav>
+        </div>-->
         <div class= "col-md-9 offset-md-3">
         <table class="table table-success table-striped">
           <thead>
@@ -40,8 +51,7 @@
                     @csrf 
                     @method('DELETE')                    
                     <a href="{{route('reports.show', $Report->id)}}" class="btn btn-outline-success">Detalles</a>
-                    <a href="{{route('reports.edit', $Report->id)}}" class="btn btn-outline-secondary">Editar</a> 
-                    <button class="btn btn-outline-danger" type="submit">Eliminar</button>
+                 
                     </form>
                 </td>
                 </tr>

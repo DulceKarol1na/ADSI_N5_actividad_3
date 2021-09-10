@@ -15,6 +15,9 @@
     <div class= "col-md-9 offset-md-3">
         <table class="table table-success table-striped">
                 <tr>
+                <th class="text-center" colspan="6" scope="col">Detalles de Reporte</th>
+                </tr>
+                <tr>
                 <th  scope="col">Asistente</th>
                 <td colspan="2" >{{ $Report-> type}}</td>
                 <th  scope="col">Fecha de registro</th>

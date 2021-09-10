@@ -90,7 +90,11 @@ class InstructorController extends Controller
     public function edit($id)
     {
         $InstruSena = InstruSena::find($id);
-        return view('InstruSenas.edit', compact('InstruSena'));
+        $learner = Learner::find($id);
+        $program = Program::find($id);
+        $workingday = Workingday::find($id);
+
+        return view('InstruSenas.edit', compact('InstruSena','learner','program','workingday'));
     }
 
     /**

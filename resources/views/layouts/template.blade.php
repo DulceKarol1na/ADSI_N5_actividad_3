@@ -18,6 +18,7 @@
             <div><a href="{{route('reports.index')}}"class="reporte">Reporte de asistencia</a></div>
             <div><a href="{{route('learners.index')}}" class="aprendices">Aprendices</a></div>
             <div><a href="{{route('InstruSenas.index')}}" class="instructores">Instructores</a></div>
+
         <!-- Content--->
         <div class= "col-md-12">
              @yield('content')

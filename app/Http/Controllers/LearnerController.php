@@ -84,7 +84,11 @@ class LearnerController extends Controller
     public function edit($id)
     {
         $learner = Learner::find($id);
-         return view('learners.edit', compact('learner'));
+        $program = Program::find($id);
+        $course = Course::find($id);
+        $instruSena = InstruSena::find($id);
+        $workingday = Workingday::find($id);
+        return view('learners.edit', compact('learner','program','instruSena','workingday','course'));
     }
 
     /**

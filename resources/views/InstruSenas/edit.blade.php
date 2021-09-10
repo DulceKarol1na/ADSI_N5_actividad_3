@@ -18,10 +18,13 @@
         @method('PUT')
         <table class="table table-success table-striped">
                 <tr>
+                <th class="text-center" colspan="4" scope="col">Editar Instructor</th>
+                </tr>
+                <tr>
                 <th scope="col"># Identificacion</th>
                 <td> <input type ="text" class ="from-control" name ="identificationnumber" value = "{{ $InstruSena-> identificationnumber}}"> </td>
                 <th  scope="col">Jornada</th>
-                <td > <input type ="text" class ="from-control" name ="workingday_id" value = "{{ $InstruSena-> workingday_id}}"> </td>
+                <td > <input type ="text" class ="from-control" name ="workingday_id" value = "{{$workingday['name']}}" disabled> </td>
                 </tr>
                 <th colspan="2" scope="col">Ficha</th>
                 <td colspan="2"> <input type ="text" class ="from-control" name ="courses_id" value = "{{ $InstruSena-> courses_id}}"> </td>
@@ -37,8 +40,8 @@
                 <td  colspan="2"> <input type ="text" class ="from-control" name ="email" value = "{{ $InstruSena-> email}}"> </td>
                 </tr>
                 <tr>
-                <th colspan="2" scope="col">Programa</th>
-                <td colspan="2"> <input type ="text" class ="from-control" name ="program_id" value = "{{ $InstruSena-> program_id}}"></td>
+                <th scope="col">Programa</th>
+                <td colspan="4"> <input style="width: 508px;" class ="from-control" name ="program_id" value = "{{$program['name']}}" disabled></td>
                 </tr>
                 <tr>
             </table>
