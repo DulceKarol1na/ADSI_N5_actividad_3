@@ -18,16 +18,21 @@
         @method('PUT')
         <table class="table table-success table-striped">
                 <tr>
-                <th class="text-center" colspan="4" scope="col">Editar Aprendiz</th>
+                    <th class="text-center" colspan="4" >Editar Aprendiz</th>
                 </tr>
                 <tr>
                 <th scope="col"># Identificacion</th>
                 <td> <input type ="text" class ="from-control" name ="identificationnumber" value = "{{ $learner-> identificationnumber}}"> </td>
                 <th scope="col">Ficha</th>
-                <td> <input type ="text" class ="from-control" name ="course_id" value = "{{ $learner-> course_id}}" disabled></td> 
+                <td> <input type ="text" class ="from-control" name ="course_id" value = "{{ $learner-> course_id}}"></td> 
                 </tr>
                 <th colspan="2" scope="col">Jornada</th>
-                <td colspan="2"> <input type ="text" class ="from-control" name ="workingday_id" value = "{{ $learner-> workingday_id}}"> </td>
+                <td colspan="2"> 
+                    <select name ="workingday_id" id="workingday_id">
+                            <option value = "{{ $learner-> workingday_id}}"> {{$workingday['name']}}</option>
+                    </select> 
+
+                </td>
                 </tr>
                 <tr>
                 <th scope="col">Nombre </th>
@@ -41,12 +46,20 @@
                 </tr>
                 <tr>
                 <th colspan="2" scope="col">Programa</th>
-                <td colspan="2"> <input style="width: 508px;" class ="from-control" name ="program_id" value = "{{$program['name']}}" disabled></td>
+                <td colspan="2"> 
+                    <select name ="program_id" id="workingday_id">
+                            <option  value = "{{ $learner-> program_id}}"> {{$program['name']}}</option>
+                    </select> 
+                </td>
                 </tr>
                 <tr>
                 <th colspan="2" scope="col">Instructor</th>
-                <td colspan="2"> <input type ="text" class ="from-control" name ="instructor_id" value =  "{{ $instruSena-> name}}"  disabled ></td> 
-                </tr>
+                <td colspan="2">
+                    <select name ="instructor_id" id="instructor_id">
+                            <option value = "{{ $learner-> instructor_id}}"> {{$instruSena['name']}} {{$instruSena['lastaname']}}</option>
+                    </select> 
+                </td> 
+            </tr>
             </table>
            <button type ="submit" class="btn btn-outline-secondary">Guardar Cambios</button>                
            <a href="{{route('learners.index')}}" class="btn btn-outline-success">Regresar</a>

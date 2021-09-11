@@ -40,14 +40,14 @@
                 <td>{{ $Report-> email}}</td>
                 </tr>
                 <tr>
-                <th colspan="2" scope="col">Programa</th>
+               <!-- <th colspan="2" scope="col">Programa</th>
                 <td>{{$program['name']}}</td>
                 <th colspan="2" scope="col">Instructor</th> 
                 <td>{{$instruSena['name']}} {{$instruSena['lastname']}}</td> 
-                </tr>
+                </tr> -->
             </table>
             <a href="{{route('reports.index')}}" class="btn btn-outline-success">Regresar</a>
-            <a  href="{{route('reports.edit', $Report->id)}}" class="btn btn-outline-secondary">Editar</a>                
+                           
         </div>
     </div>
 </div>

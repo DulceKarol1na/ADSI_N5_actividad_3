@@ -15,16 +15,16 @@
     <div class= "col-md-9 offset-md-3">
         <form action  ="{{route('InstruSenas.store')}}" method = "POST"> 
         @csrf 
-        <table class="table table-success table-striped">
+        <table   class="table table-success table-striped">
         <tr>
-            <th class="text-center" colspan="4" >Registro Instructor</th> 
+            <th class="text-center" colspan="4" >Registro Instructor</th>
         </tr>
                 <tr>
                 <th scope="col"># Identificacion</th>
                 <td> <input type ="text" class ="from-control" name ="identificationnumber" value = ""> </td>
                 <th scope="col">Ficha</th>
                 <td> 
-                    <select name="course_id" id="course_id">
+                    <select name="courses_id" id="courses_id">
                             @foreach ($Courses as $Course)
                             <option value ="{{$Course ['id']}}">{{$Course['id']}}</option>
                             @endforeach
@@ -43,19 +43,20 @@
                 </tr>
                 <tr>
                 <th colspan="2" scope="col">Programa</th>
-                <td colspan="2">  
-                    <select name="program_id" id="program_id">
+                <td colspan="2"> 
+                <select name="program_id" id="program_id">
                         @foreach ($Programs as $Program)
                         <option value ="{{$Program ['id']}}"> {{$Program['name']}}</option>
                         @endforeach
-                    </select>
-                </td>
+                    </select> 
+                </td>   
                 </tr>
+                <tr>
                 <th colspan="2" scope="col">Jornada</th>
                 <td colspan="2"> 
-                <select name="workingday_id" id="workingday_id">
-                        @foreach ($Workingdays as $Workinday)
-                        <option value ="{{$Workinday ['id']}}"> {{$Workinday['name']}}</option>
+                    <select name="workingday_id" id="workingday_id">
+                        @foreach ($Workingdays as $workingday)
+                        <option value ="{{$workingday ['id']}}"> {{$workingday['name']}}</option>
                         @endforeach
                     </select> 
                 </td>
@@ -72,7 +73,6 @@
 </body>
 
 </html>
-
 
 
 

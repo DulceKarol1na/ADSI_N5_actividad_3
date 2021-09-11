@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 
 use Illuminate\Http\Request;
-use App\Models\InstruSena;
 use App\Models\Learner;
 use App\Models\Workingday;
 use App\Models\Course;
 use App\Models\Program;
+use App\Models\InstruSena;
 
 
 
@@ -22,8 +22,8 @@ class InstructorController extends Controller
      */
     public function index()
     {
-      $InstruSenas = InstruSena::all();
-      return view('InstruSenas.index' ,compact('InstruSenas'));
+      $instruSenas = InstruSena::all();
+      return view('InstruSenas.index' ,compact('instruSenas'));
 
     }
 
@@ -34,13 +34,12 @@ class InstructorController extends Controller
      */
     public function create()
     {
-       
-        $Workingdays = Workingday::all();
-        $Programs = Program::all(); 
-        $InstruSenas = InstruSena::all(); 
-        $Courses = Course::all();
+       $Workingdays = Workingday::all();
+       $Programs = Program::all(); 
+       $InstruSenas = InstruSena::all(); 
+       $Courses = Course::all();
   
-        return view ('InstruSenas.create', compact('Workingdays', 'Programs', 'InstruSenas','Courses'));
+       return view ('InstruSenas.create', compact('Workingdays', 'Programs', 'InstruSenas','Courses'));
 
     }
 
@@ -73,11 +72,12 @@ class InstructorController extends Controller
      */
     public function show($id)
     {
-        $InstruSena = InstruSena::find($id);
+        $instruSena = InstruSena::find($id);
         $learner = Learner::find($id);
         $program = Program::find($id);
         $workingday = Workingday::find($id);
-        return view('InstruSenas.show', compact('InstruSena','learner','program','workingday'));
+        $course = Course::find($id);
+        return view('InstruSenas.show', compact('instruSena','learner','program','workingday','course'));
      
     }
 
@@ -89,12 +89,13 @@ class InstructorController extends Controller
      */
     public function edit($id)
     {
-        $InstruSena = InstruSena::find($id);
         $learner = Learner::find($id);
         $program = Program::find($id);
+        $course = Course::find($id);
+        $instruSena = InstruSena::find($id);
         $workingday = Workingday::find($id);
 
-        return view('InstruSenas.edit', compact('InstruSena','learner','program','workingday'));
+        return view('InstruSenas.edit', compact('learner','program','instruSena','workingday','course'));
     }
 
     /**
@@ -106,7 +107,7 @@ class InstructorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $InstruSena = InstruSena::find($id)->update([
+        $instruSena = InstruSena::find($id)->update([
             'identificationnumber' => $request->input('identificationnumber'),
             'name'=> $request->input('name'),
             'lastaname'=> $request->input('lastaname'),

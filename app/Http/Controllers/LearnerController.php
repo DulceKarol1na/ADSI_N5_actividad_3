@@ -10,6 +10,9 @@ use App\Models\Course;
 use App\Models\Program;
 use App\Models\InstruSena;
 
+
+
+
 class LearnerController extends Controller
 {
     /**
@@ -35,6 +38,7 @@ class LearnerController extends Controller
        $Programs = Program::all(); 
        $InstruSenas = InstruSena::all(); 
        $Courses = Course::all();
+       
        return view ('learners.create', compact('Workingdays', 'Programs', 'InstruSenas','Courses'));
 
     }
@@ -68,11 +72,12 @@ class LearnerController extends Controller
      */
     public function show($id)
     {
+        $instruSena = InstruSena::find($id);
         $learner = Learner::find($id);
         $program = Program::find($id);
-        $instruSena = InstruSena::find($id);
         $workingday = Workingday::find($id);
-        return view('learners.show', compact('learner','program','instruSena','workingday'));
+        $course = Course::find($id);
+        return view('learners.show', compact('learner','program','instruSena','workingday','course'));
     }
 
     /**
